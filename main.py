@@ -3,7 +3,10 @@ from vote_logic import VoteLogic
 from gui import VotingApp
 
 
-def main():
+def main() -> None:
+    '''
+    Initializes and runs the tkinter GUI for the voting app.
+    '''
     root = tk.Tk()
     root.title("Lab 10")
     root.geometry("240x220")

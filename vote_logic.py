@@ -3,10 +3,16 @@ import tkinter as tk
 from gui import *
 
 class VoteLogic:
-    def __init__(self):
+    def __init__(self) -> None:
+        '''
+        Initializes the VoteLogic class - manages vote storage in CSV file
+        '''
         self.vote_file = 'votes.csv'
 
-    def record_vote(self, voter_id, candidate):
+    def record_vote(self, voter_id, candidate) -> None:
+        '''
+        Records vote in the CSV file
+        '''
         if self.has_voted(voter_id):
             print(f"Duplicate detected for ID: {voter_id}")
             messagebox.showerror("Duplicate Vote", "This voter ID has already voted.")
@@ -18,7 +24,10 @@ class VoteLogic:
                 writer.writerow([voter_id, candidate])
             return True
 
-    def has_voted(self, voter_id):
+    def has_voted(self, voter_id) -> bool:
+        '''
+        Checks if the given voter ID has already voted
+        '''
         try:
             with open(self.vote_file, mode='r') as file:
                 reader = csv.reader(file)
